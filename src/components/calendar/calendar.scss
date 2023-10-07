@@ -1,0 +1,23 @@
+
+.calendar {
+  padding: 3px;
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  overflow-x: auto; 
+  overflow-y: hidden; 
+  align-items: center;
+  background-color: azure;
+  border-radius: 8px;
+}
+
+.events {
+  div {
+    display: flex;
+    flex-direction: column;
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

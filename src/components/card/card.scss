@@ -1,0 +1,80 @@
+$borderColor: hsl(315, 43%, 39%);
+$cardColor: #B9C8F1;
+
+.dragging {
+  display: flex; 
+  position: relative; 
+  border: $borderColor solid 2px;
+  padding: 0.625rem; 
+  align-items: center; 
+  border-radius: 0.75rem; 
+  border-width: 2px; 
+  text-align: left; 
+  cursor: grab; 
+  opacity: 0.3; 
+  height: 80px;
+  background-color: $cardColor;
+}
+
+.task {
+  display: flex; 
+  padding: 10px;
+  font-size: 14px;
+  flex-direction: column;
+  position: relative; 
+  justify-content: center;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 0.75rem; 
+  text-align: left; 
+  box-sizing: border-box;
+  border: solid transparent 2px;
+  cursor: grab; 
+  height: 80px;
+  padding: 5px;
+  background-color: $cardColor;
+  &:hover{
+    border: solid $borderColor 2px;
+  }
+
+  b {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 10px;
+  }
+
+  p{
+    margin: 0px;
+  }
+
+  div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 5px;
+    right: 5px;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: $cardColor;
+    button {
+      opacity: 0.5;
+      border: none;
+      :hover{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.editTask {
+  display: flex; 
+  flex-direction: column;
+  position: relative; 
+  padding: 0.625rem; 
+  align-items: center; 
+  border-radius: 0.75rem; 
+  text-align: left; 
+  cursor: grab; 
+  background-color: $cardColor;
+}

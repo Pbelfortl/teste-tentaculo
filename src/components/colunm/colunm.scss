@@ -1,0 +1,88 @@
+$borderColor: #8F3979;
+$colunmColor: azure;
+$fontColor: #01203a;
+$headerColor: #B9C8F1;
+
+.colunmDrag {
+  display: flex; 
+  flex-direction: column; 
+  border-radius: 0.375rem; 
+  border: 2px $borderColor solid;
+  background-color: $colunmColor;
+  opacity: 0.4; 
+  width: 250px;
+  height: 500px;
+  max-height: 500px;
+}
+
+.colunm {
+  display: flex; 
+  flex-direction: column; 
+  border-radius: 0.375rem; 
+  background-color: $colunmColor;
+  width: 250px;
+  height: 500px;
+  max-height: 500px;
+  color: $fontColor;
+  padding: 3px;
+  
+  button {
+    cursor: pointer;
+    background-color: $headerColor;
+    
+  }
+
+  .colunmHeader{
+    display: flex; 
+    padding: 0.75rem; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-radius: 0.375rem; 
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0; 
+    border-width: 4px; 
+    font-weight: 700;
+    background-color: $headerColor;
+    cursor: grab; 
+    height: 40px;
+    div{
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  .colunmContainer {
+    display: flex; 
+    overflow-y: auto; 
+    overflow-x: hidden;  
+    flex-direction: column; 
+    flex-grow: 1; 
+    gap: 1rem;
+  }
+
+  .colunmFooter {
+    display: flex; 
+    padding: 1rem; 
+    gap: 0.5rem; 
+    align-items: center; 
+    border-radius: 0.375rem; 
+    border-width: 2px; 
+  }
+
+  .input{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; 
+    border-radius: 0.25rem; 
+    border-width: 1px; 
+    outline-style: none; 
+    background-color: #000000; 
+  }
+
+  .deleteColunm {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    border-radius: 0.25rem; 
+  }
+}
