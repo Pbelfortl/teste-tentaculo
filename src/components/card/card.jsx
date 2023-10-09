@@ -40,7 +40,6 @@ export default function TaskCard({ task, deleteTask, updateTask }) {
         <textarea
           className="taskText"
           value={task.description}
-          placeholder="Task content here"
           onChange={(e) => updateTask(task.id, task.title, e.target.value, task.date)}
         />
         <input type="date" value={task.date} onChange={(e) => updateTask(task.id, task.title, task.description, e.target.value)} />
@@ -61,17 +60,17 @@ export default function TaskCard({ task, deleteTask, updateTask }) {
         setMouseIsOver(false);
       }}
     >
-      <p>{task.title}</p>
+      <p><strong>{task.title}</strong></p>
       <p>{task.description}</p>
       <b>{task.date}</b>
 
       {mouseIsOver && (
         <div>
-          <button onClick={() => { deleteTask(task.id) }} className="deleteButton">
-            <ion-icon name="trash-outline"></ion-icon>
-          </button>
           <button onClick={() => toggleEditMode()} className="editButton">
             <ion-icon name="pencil-outline"></ion-icon>
+          </button>
+          <button onClick={() => { deleteTask(task.id) }} className="deleteButton">
+            <ion-icon name="trash-outline"></ion-icon>
           </button>
         </div>  
       )}

@@ -6,8 +6,8 @@ import  "./colunm.scss"
 
 
 export default function ColumnContainer({column, deleteColumn, updateColumn, createTask, tasks, deleteTask, updateTask}) {
-  const [editMode, setEditMode] = useState(false);
-  const tasksIds = useMemo(() => tasks.map((task) => task.id), [tasks]);
+  const [editMode, setEditMode] = useState(false); //enable task edit mode 
+  const tasksIds = useMemo(() => tasks.map((task) => task.id), [tasks]); 
 
   const {setNodeRef, attributes, listeners, transform, transition, isDragging} = useSortable({
     id: column.id,

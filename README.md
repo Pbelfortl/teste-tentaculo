@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Drag 'n Drop ToDo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 🚀 Começando
 
-In the project directory, you can run:
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-### `npm start`
+### 📋 Pré-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Do que você precisa para rodar o software?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+-node
+-compilador SASS
+```
 
-### `npm test`
+### 🔧 Instalação
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Execute o seguinte comando na pasta raiz do projeto:
 
-### `npm run build`
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ⚙️ Execução
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para rodar a aplicação em modo de desenvolvimento execute o seguinte comando:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm run start
+```
 
-### `npm run eject`
+### 📦 Implantação AWS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para servir a aplicação na web utilizando o serviços S3 de AWS siga as instruções abaixo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1 - No console de serviços selecione o serviço S3
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2 - NO menu lateral escolha a opção "Buckets" e em seguida "Criar bucket"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3 - Selecione o bucket escolhido e na guia de permissões desabilite a opção "Bloquear acesso público"
 
-## Learn More
+4 - Ainda na área de permissões configure a política do bucket 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5 - Também na área de permissões configure o Compartilhamento de recursos de origem cruzada (CORS)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6 - Em seguida na guia "Propriedades" na área "Editar hospedagem de site estático" clique em "Editar"
 
-### Code Splitting
+7 - Em "hospedagem de site estático marque a opção "Ativar" e em tipo de hospedagem marque a opção "Hospedar um site estático"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+8 - em "Documento de ídice" coloque "index.html" e salve as alterações
 
-### Analyzing the Bundle Size
+9 - Gere a pasta build da aplicação com o seguinte comando na pasta raiz:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm run build
+```
+10 - Na guia "Objetos" do seu bucket clique em carregar
 
-### Making a Progressive Web App
+11 - Clique em "adicionar arquivos" e em "Adicionar pastas" e faça o upload de todos os arquivos de pastas da pasta build geradas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Fornecendo uma distribuição com Cloudfront
 
-### Advanced Configuration
+Passos para criar uma distribuição do aplicativo utilizando o serviço Cloudfront
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1 - Selecione o serviço Cloudfront no console AWS
 
-### Deployment
+2 - Clique em "Create distribution"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3 - Na área origin selecione o bucket criado anteriormente e e escolha um nome
 
-### `npm run build` fails to minify
+4 - Para esta aplicação não é necessário configurações avançadas, mas fique a vontade para explorar suas necessidades.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5 - Clique em "Create distribution" para finalizar
+
+##
+
+### Clique [aqui](http://teste-tantaculo.s3-website-sa-east-1.amazonaws.com) para utilizar a aplicação

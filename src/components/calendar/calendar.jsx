@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction';
 import "./calendar.scss"
 
 export default function ({events}) {
 
-  const [eventsDay, setEventsDay] = useState(new Date().toJSON().slice(0, 10))
+  const [eventsDay, setEventsDay] = useState(new Date().toJSON().slice(0, 10)) 
 
     return (
       <div className="calendar">
@@ -21,6 +21,7 @@ export default function ({events}) {
           setEventsDay(info.dateStr)
           }
         }
+        eventBackgroundColor={"blue"}
         height={"auto"}
         eventDisplay={"background"}
         editable={true}
@@ -32,8 +33,8 @@ export default function ({events}) {
         <div className='events'>
           {events.map(event => (
             eventsDay === event.date &&
-            <div>
-              <p>{event.title}</p>
+            <div key={event.id}>
+              <b>{event.title}</b>
               <p>{event.date}</p>
             </div>
           ))}

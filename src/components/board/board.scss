@@ -8,13 +8,21 @@ $fontColor: #01203a;
   overflow-x: auto; 
   overflow-y: hidden; 
   align-items: center;
-  width: 80%;
+  width: 85%;
   background: rgba(255, 255, 255, 0.18);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(6.7px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #8F3979; 
+    border-radius: 10px;
+  }
 
   div {
     gap: 1rem;
@@ -29,39 +37,5 @@ $fontColor: #01203a;
     cursor: pointer; 
     height: 60px;
     width: 200px;
-  }
-
-  h6 {
-    color: $fontColor;
-  }
-
-  ul {
-    width: 90%;
-    padding-left: 0px;
-    list-style-type: none;
-    li {
-      color: $fontColor;
-      position: relative;
-      ion-icon {
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .addForm {
-    width: 90%;
-    color: $fontColor;
-    background-color: $taskColor;
-    p {
-      cursor: pointer;
-    }
-    button {
-      background-color: transparent;
-      border: none;
-      color: $fontColor;
-    }
   }
 }

@@ -7,18 +7,7 @@ import TaskCard from '../card/card';
 import ColumnContainer from '../colunm/colunm';
 
 
-const defaultCols = [
-  { id: "todo", title: "To do" },
-  { id: "doing", title: "Doing" },
-  { id: "done", title: "Done" }
-]
 
-const defaultTasks = [
-  { id:1, columnId: "todo", title: "Sleep", description: "sleep 8 hrs", date: "2023-10-20" },
-  { id:2, columnId: "doing", title: "Sleep", description: "sleep 8 hrs", date: "2023-10-20" },
-  { id:4, columnId: "done", title: "Sleep", description: "sleep 8 hrs", date: "2023-10-20" },
-  { id:5, columnId: "done", title: "Sleep", description: "sleep 8 hrs", date: "2023-10-20" }
-]
 
 export default function Board({columns, setColumns, tasks, setTasks}) {
 
@@ -104,7 +93,7 @@ export default function Board({columns, setColumns, tasks, setTasks}) {
     const newTask = {
       id: generateId(),
       columnId,
-      description: `New task`,
+      title: `New task`,
     };
     window.localStorage.setItem("tasks", (JSON.stringify([...tasks, newTask])))
     setTasks([...tasks, newTask]);
@@ -169,7 +158,6 @@ export default function Board({columns, setColumns, tasks, setTasks}) {
   function onDragEnd(event) {
     setActiveColumn(null);
     setActiveTask(null);
-    console.log(event)
   
     const { active, over } = event;
     if (!over) return;
@@ -207,14 +195,13 @@ export default function Board({columns, setColumns, tasks, setTasks}) {
 
     if (!isActiveATask) return;
   
-    // Im dropping a Task over another Task
+    //dropping a Task over another Task
     if (isActiveATask && isOverATask) {
       setTasks((tasks) => {
         const activeIndex = tasks.findIndex((t) => t.id === activeId);
         const overIndex = tasks.findIndex((t) => t.id === overId);
   
         if (tasks[activeIndex].columnId !== tasks[overIndex].columnId) {
-          // Fix introduced after video recording
           tasks[activeIndex].columnId = tasks[overIndex].columnId;
           return arrayMove(tasks, activeIndex, overIndex - 1);
         }
@@ -225,13 +212,14 @@ export default function Board({columns, setColumns, tasks, setTasks}) {
   
     const isOverAColumn = over.data.current?.type === "Column";
   
-    // Im dropping a Task over a column
+    //dropping a Task over a column
     if (isActiveATask && isOverAColumn) {
       setTasks((tasks) => {
         const activeIndex = tasks.findIndex((t) => t.id === activeId);
   
         tasks[activeIndex].columnId = overId;
         console.log("DROPPING TASK OVER COLUMN", { activeIndex });
+        window.localStorage.setItem("tasks", (JSON.stringify(arrayMove(tasks, activeIndex, activeIndex))))
         return arrayMove(tasks, activeIndex, activeIndex);
       });
     }
@@ -239,6 +227,5 @@ export default function Board({columns, setColumns, tasks, setTasks}) {
 }
 
 function generateId() {
-/* Generate a random number between 0 and 10000 */
 return Math.floor(Math.random() * 10001);
 }

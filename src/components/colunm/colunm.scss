@@ -22,9 +22,12 @@ $headerColor: #B9C8F1;
   background-color: $colunmColor;
   width: 250px;
   height: 500px;
-  max-height: 500px;
   color: $fontColor;
   padding: 3px;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
   
   button {
     cursor: pointer;
@@ -58,6 +61,14 @@ $headerColor: #B9C8F1;
     flex-direction: column; 
     flex-grow: 1; 
     gap: 1rem;
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #8F3979; 
+      border-radius: 10px;
+    }
   }
 
   .colunmFooter {
@@ -79,8 +90,8 @@ $headerColor: #B9C8F1;
   }
 
   .deleteColunm {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem; 
+    padding-left: 0.30rem;
+    padding-right: 0.30rem; 
     padding-top: 0.5rem;
     padding-bottom: 0.5rem; 
     border-radius: 0.25rem; 

@@ -12,12 +12,22 @@
 }
 
 .events {
+  width: 95%;
   div {
     display: flex;
     flex-direction: column;
-    div {
-      display: flex;
-      flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15px;
+    background-color: #B9C8F1;
+    padding: 5px;
+    border-radius: 10px;
+    b {
+      font-weight: 500;
+    }
+    p {
+      margin: 0px;
+      font-size: 12px;
     }
   }
 }
